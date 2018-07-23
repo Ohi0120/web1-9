@@ -8,18 +8,22 @@ public class BasketController : MonoBehaviour {
     public AudioClip appleSE;
     public AudioClip bombSE;
     AudioSource aud;
+    GameObject director;
 
     private void Start()
     {
+        this.director = GameObject.Find("GameDirector");
         this.aud = GetComponent<AudioSource>();
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Apple")
         {
+            this.director.GetComponent<GameDirector>().GetApple();
             this.aud.PlayOneShot(this.appleSE);
         } else
         {
+            this.director.GetComponent<GameDirector>().GetBomb();
             this.aud.PlayOneShot(this.bombSE);
         }
         Destroy(other.gameObject);
