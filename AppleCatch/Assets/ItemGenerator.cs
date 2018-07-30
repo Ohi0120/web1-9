@@ -6,10 +6,10 @@ public class ItemGenerator : MonoBehaviour {
 
     public GameObject applePrefab;
     public GameObject bombPrefab;
-    float span = 1.0f;
+    float span = 0.4f;
     float delta = 0;
     int ratio = 2;
-    float speed = -0.03f;
+    float speed = -0.1f;
 
     public void SetParameter(float span, float speed, int ratio)
     {
@@ -23,12 +23,13 @@ public class ItemGenerator : MonoBehaviour {
         {
             this.delta = 0;
             GameObject item;
-            int dice = Random.Range(1, 11);
+            int dice = Random.Range(1, 5);
             if (dice <= this.ratio)
             {
                 item = Instantiate(bombPrefab) as GameObject;
             }
             else
+
             {
                 item = Instantiate(applePrefab) as GameObject;
             }

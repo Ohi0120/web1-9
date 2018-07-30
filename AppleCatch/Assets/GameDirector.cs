@@ -8,17 +8,17 @@ public class GameDirector : MonoBehaviour
 
     GameObject timerText;
     GameObject pointText;
-    float time = 60.0f;
+    float time = 25.0f;
     int point = 0;
 
     public void GetApple()
     {
-        this.point += 100;
+        this.point += 400;
     }
 
     public void GetBomb()
     {
-        this.point /= 2;
+        this.point /= 4;
     }
     void Start()
     {
